@@ -1,28 +1,86 @@
 {
-    "bg": "https://images7.alphacoders.com/506/506800.jpg?resize=1536%2C1208&ssl=1",
-    "title": "Quiz CSS da Alura",
-    "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
+    "bg": "https://www.itl.cat/pngfile/big/28-285234_hufflepuff-hardcover-ruled-journal-harry-potter-repeating-pattern.jpg",
+    "title": "Quiz Harry Potter da Alura",
+    "description": "Teste os seus conhecimentos sobre Harry Potter e vamos ver o quão bruxo você é.",
     "questions": [
       {
-        "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
-        "title": "Como fazer um seletor por id via CSS?",
+        "image": "https://2.bp.blogspot.com/-gC9c5zZ311w/VzpUpYAbUPI/AAAAAAAAAd8/Hq-zDUl1qO4hlO3E-xR7MmDntNh82PCrwCLcB/s1600/tumblr_m6tj73dv3p1qfinfno1_500.gif",
+        "title": "Como Harry consegue respirar debaixo d'água durante a segunda tarefa do Torneio Tribruxo?",
         "description": "Essa é pra aquecer",
         "answer": 2,
         "alternatives": [
-          ".elemento",
-          "*elemento",
-          "#elemento",
-          "%elemento"
+          "Ele transfigura em um tubarão",
+          "Ele beija uma sereia",
+          "Ele come gillyweed",
+          "Ele executa um charme de cabeça de bolha"
         ]
       },
       {
-        "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-        "title": "Como fazer um background gradiente com css?",
-        "description": "Faz tempo em haha",
-        "answer": 0,
+        "image": "https://static.wikia.nocookie.net/powerlisting/images/2/2b/Bellatrix_Lestrange_Avada_Kevadra.gif/revision/latest/scale-to-width-down/350?cb=20190323131050",
+        "title": "Quem emprestou a mota voadora a Hagrid?",
+        "description": "Eu era e sou a mais fiel serva do Lorde das Trevas",
+        "answer": 1,
+        "alternatives": [
+           "Dumbludore",
+           "James Potter",
+           "Remus Lupin",
+           "Sirius Black"
+          ]
+        },
+        {
+          "image": "data:image/gif;base64,R0lGODlhEQAJAIAAAP///wAAACH5BAEAAAAALAAAAAARAAkAAAIKhI+py+0Po5y0FgA7",
+          "title": "Quem lançou o feitiço que fez Ron vomitar lesmas?",
+          "description": "",
+          "answer": 1,
+          "alternatives": [
+             "Draco Malfoy;",
+             "Gregory Goyle",
+             "Vicent Crabb",
+             "Ron Weasley"
+          ]
+        },
+      {
+        "image": "https://static.wikia.nocookie.net/powerlisting/images/2/2b/Bellatrix_Lestrange_Avada_Kevadra.gif/revision/latest/scale-to-width-down/350?cb=20190323131050",
+        "title": "Quem escondeu a correspondência de Harry, antes de começar o 2º ano?",
+        "description": "Eu era e sou a mais fiel serva do Lorde das Trevas",
+        "answer": 1,
+        "alternatives": [
+           "Dudley Dursley",
+           "Vernon Dursley",
+           "Dobby",
+           "Hedwig"
+        ]
+      },
+      {
+        "image": "https://static.wikia.nocookie.net/powerlisting/images/2/2b/Bellatrix_Lestrange_Avada_Kevadra.gif/revision/latest/scale-to-width-down/350?cb=20190323131050",
+        "title": "Qual destas pessoas a Belatriz Lestrange NÂO matou?",
+        "description": "Eu era e sou a mais fiel serva do Lorde das Trevas",
+        "answer": 1,
         "alternatives": [
            "background: linear-gradient(#e66465, #9198e5);",
            "background: gradient(#e66465, #9198e5);"
+        ]
+      },
+      {
+        "image": "https://static.wikia.nocookie.net/powerlisting/images/2/2b/Bellatrix_Lestrange_Avada_Kevadra.gif/revision/latest/scale-to-width-down/350?cb=20190323131050",
+        "title": "Qual destas pessoas a Belatriz Lestrange NÂO matou?",
+        "description": "Eu era e sou a mais fiel serva do Lorde das Trevas",
+        "answer": 1,
+        "alternatives": [
+           "background: linear-gradient(#e66465, #9198e5);",
+           "background: gradient(#e66465, #9198e5);"
+        ]
+      },
+      {
+        "image": "https://static.wikia.nocookie.net/powerlisting/images/2/2b/Bellatrix_Lestrange_Avada_Kevadra.gif/revision/latest/scale-to-width-down/350?cb=20190323131050",
+        "title": "Qual destas pessoas a Belatriz Lestrange NÂO matou?",
+        "description": "Eu era e sou a mais fiel serva do Lorde das Trevas",
+        "answer": 1,
+        "alternatives": [
+           "Remo Lupin;",
+           "Ninfadora Tonks",
+           "Sirius Black"
+
         ]
       }
     ],
@@ -31,13 +89,14 @@
     ],
     "theme": {
       "colors": {
-        "primary": "#827717",
-        "secondary": "amber",
-        "border": "#efebe9",
-        "mainBg": "#171B35",
-        "contrastText": "#FFFFFF",
+        "primary": "#ffd000",
+        "secondary": "#700202",
+        "border": "#020202",
+        "mainBg": "#FFFFFF",
+        "contrastText": "#020202",
         "wrong": "#FF5722",
-        "success": "#4CAF50"
+        "success": "#4CAF50",
+        "button": "#ffd000"
       },
       "borderRadius": "4px"
     }
