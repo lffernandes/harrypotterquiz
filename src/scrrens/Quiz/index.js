@@ -18,6 +18,7 @@ function ResultWidget({ results }) {
 
       <Widget.Content>
         <p>
+          {' '}
           Você acertou
           {' '}
           {/* {results.reduce((somatoriaAtual, resultAtual) => {

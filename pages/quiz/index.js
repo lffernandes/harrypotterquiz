@@ -13,10 +13,12 @@ function ResultWidget({ results }) {
     <Widget>
       <Widget.Header>
         Tela de Resultado:
+        {' '}
       </Widget.Header>
 
       <Widget.Content>
         <p>
+          {' '}
           Você acertou
           {' '}
           {/* {results.reduce((somatoriaAtual, resultAtual) => {
