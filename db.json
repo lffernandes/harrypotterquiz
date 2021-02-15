@@ -1,5 +1,6 @@
 {
     "bg": "https://www.itl.cat/pngfile/big/28-285234_hufflepuff-hardcover-ruled-journal-harry-potter-repeating-pattern.jpg",
+    "titleImg": "http://clipart-library.com/images_k/harry-potter-logo-transparent-background/harry-potter-logo-transparent-background-23.png",
     "title": "Quiz Harry Potter da Alura",
     "description": "Teste os seus conhecimentos sobre Harry Potter e vamos ver o quão bruxo você é.",
     "questions": [
@@ -85,7 +86,9 @@
       }
     ],
     "external": [
-      ""
+      "https://aluraquiz.paulovsa.vercel.app/",
+      "https://typical-food-sp-quiz.dougvaz.vercel.app/",
+      "https://aluraquiz-css.omariocouto.vercel.app/"
     ],
     "theme": {
       "colors": {
@@ -96,7 +99,8 @@
         "contrastText": "#020202",
         "wrong": "#FF5722",
         "success": "#4CAF50",
-        "button": "#ffd000"
+        "button": "#ffd000",
+        "error": "red"
       },
       "borderRadius": "4px"
     }

@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import db from '../db.json';
-import QuizContainer from '../src/components/QuizContainer';
-import QuizBackground from '../src/components/QuizBackground';
-import QuizLogo from '../src/components/QuizLogo';
-import Widget from '../src/components/Widget';
-import Button from '../src/components/Button';
+import db from '../../db.json';
+import QuizContainer from '../../src/components/QuizContainer';
+import QuizBackground from '../../src/components/QuizBackground';
+import QuizLogo from '../../src/components/QuizLogo';
+import Widget from '../../src/components/Widget';
+import AlternativesForm from '../../src/components/AlternativesForm';
+import Button from '../../src/components/Button';
 
 function ResultWidget({ results }) {
   return (
@@ -15,14 +16,29 @@ function ResultWidget({ results }) {
       </Widget.Header>
 
       <Widget.Content>
-        <p>Você acertou x perguntas</p>
+        <p>
+          Você acertou
+          {' '}
+          {/* {results.reduce((somatoriaAtual, resultAtual) => {
+          const isAcerto = resultAtual === true;
+          if (isAcerto) {
+            return somatoriaAtual + 1;
+          }
+          return somatoriaAtual;
+          }, 0)} */}
+          {results.filter((x) => x).length}
+          {' '}
+          perguntas
+        </p>
         <ul>
-          {results.map((result) => (
-
-            <li>
-              #01 Resultado:
-              {result == true
-                ?'Acertou'
+          {results.map((result, index) => (
+            <li key={`result__${result}`}>
+              #
+              {index + 1}
+              {' '}
+              Resultado:
+              {result === true
+                ? 'Acertou'
                 : 'Errou'}
             </li>
           ))}
@@ -51,6 +67,7 @@ function QuestionWidget({
   totalQuestions,
   questionIndex,
   onSubmit,
+  addResult,
 }) {
   const [selectedAlternative, setSelectedAlternative] = React.useState(undefined);
   const [isQuestionSubmited, setIsQuestionSubmited] = React.useState();
@@ -83,11 +100,12 @@ function QuestionWidget({
           {question.description}
         </p>
 
-        <form
+        <AlternativesForm
           onSubmit={(infosDoEvento) => {
             infosDoEvento.preventDefault();
             setIsQuestionSubmited(true);
             setTimeout(() => {
+              addResult(isCorrect);
               onSubmit();
               setIsQuestionSubmited(false);
               setSelectedAlternative(undefined);
@@ -95,13 +113,17 @@ function QuestionWidget({
           }}
         >
           {question.alternatives.map((alternative, alternativeIndex) => {
-            console.log('Teste');
             const alternativeId = `alternative__${alternativeIndex}`;
+            const alternativeStatus = isCorrect ? 'SUCCESS' : 'ERROR';
+            const isSelected = selectedAlternative === alternativeIndex;
+
             return (
               <Widget.Topic
                 as="label"
                 key={alternativeId}
                 htmlFor={alternativeId}
+                data-selected={isSelected}
+                data-status={isQuestionSubmited && alternativeStatus}
               >
                 <input
                   // style={{ display: 'none'}}
@@ -117,9 +139,8 @@ function QuestionWidget({
           <Button type="submit" disabled={!HasAlternativeSelected}>
             Confirmar
           </Button>
-          {isQuestionSubmited && isCorrect && <p> Você acertou!</p>}
-          {isQuestionSubmited && !isCorrect && <p> Você errou!</p>}
-        </form>
+
+        </AlternativesForm>
       </Widget.Content>
     </Widget>
   );
@@ -138,6 +159,12 @@ export default function QuizPage() {
   const question = db.questions[questionIndex];
   const totalQuestions = db.questions.length;
 
+  function addResult(result) {
+    setResults([
+      ...results,
+      result,
+    ]);
+  }
   React.useEffect(() => {
     setTimeout(() => {
       setScreenState(screenStates.QUIZ);
@@ -163,6 +190,7 @@ export default function QuizPage() {
             questionIndex={questionIndex}
             totalQuestions={totalQuestions}
             onSubmit={handleSubmitQuiz}
+            addResult={addResult}
           />
         )}
 
