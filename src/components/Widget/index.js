@@ -31,6 +31,10 @@ background-color: ${({ theme }) => theme.colors.primary};
 * {
     margin: 0;
 }
+img{
+  width:100%;
+  max-height:50px;
+}
 `;
 
 Widget.Content = styled.div`

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import Head from 'next/head';
 import { motion } from 'framer-motion';
@@ -38,7 +39,7 @@ export default function Home() {
           animate="show"
         >
           <Widget.Header>
-            <h1>Harry Potter</h1>
+            <img src={db.titleImg} />
           </Widget.Header>
           <Widget.Content>
             <form onSubmit={function (infosDoEvento) {
@@ -70,9 +71,9 @@ export default function Home() {
           }}
           initial="hidden"
           animate="show"
-          >
+        >
           <Widget.Header>
-          <h1> Quizes da Galera</h1>
+            <h1> Quizes da Galera</h1>
           </Widget.Header>
           <Widget.Content>
 
