@@ -1,11 +1,11 @@
 
 
 <h1 align="center">
-     🍀 <a href="#" alt="Quiz Harry Potter">Quiz Harry Potter</a>
+      <a href="#" alt="Quiz Harry Potter">Quiz Harry Potter</a>
 </h1>
 
 <h3 align="center">
-    🤞 "Juro solenemente fazer ~~nada~~ tudo de bom" 💚
+     "Juro solenemente fazer ~~nada~~ tudo de bom" 
 </h3>
 
 
