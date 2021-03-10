@@ -1,78 +1,193 @@
-# Example app with styled-components
 
-This example features how you use a different styling solution than [styled-jsx](https://github.com/zeit/styled-jsx) that also supports universal styles. That means we can serve the required styles for the first render within the HTML and then load the rest in the client. In this case we are using [styled-components](https://github.com/styled-components/styled-components).
 
-For this purpose we are extending the `<Document />` and injecting the server side rendered styles into the `<head>`, and also adding the `babel-plugin-styled-components` (which is required for server side rendering). Additionally we set up a global [theme](https://www.styled-components.com/docs/advanced#theming) for styled-components using NextJS custom [`<App>`](https://nextjs.org/docs/advanced-features/custom-app) component.
+<h1 align="center">
+     🍀 <a href="#" alt="Quiz Harry Potter">Quiz Harry Potter</a>
+</h1>
 
-## Deploy your own
+<h3 align="center">
+    🤞 "Juro solenemente fazer ~~nada~~ tudo de bom" 💚
+</h3>
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-styled-components&project-name=with-styled-components&repository-name=with-styled-components)
+<h4 align="center">
+	🚧   Concluído 🚀 🚧
+</h4>
 
-## How to use
+Tabela de conteúdos
+=================
+<!--ts-->
+   * [Sobre o projeto](#-sobre-o-projeto)
+   * [Funcionalidades](#-funcionalidades)
+   * [Como executar o projeto](#-como-executar-o-projeto)
+     * [Pré-requisitos](#pré-requisitos)
+     * [Rodando a aplicação web (Frontend)](#user-content--rodando-a-aplicação-web-frontend)
+   * [Tecnologias](#-tecnologias)
+     * [WebSite](#user-content-website--react----typescript)
+   * [Autor](#-autor)
+   * [Licença](#user-content--licença)
+<!--te-->
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+
+## 💻 Sobre o projeto
+
+Quiz Harry Potter - é uma forma de testar os seus conhecimentos sobre a Saga Harry Potter da escritora J. K. Rowling.
+
+Projeto foi desenvolvido durante a imersão Reack e Next.js da Aura de 25/01/2021 à 29/01/2021.
+Foi o meu primeiro contato com React e Next.Js, amei a experiência e quero conhecer mais as duas stacks.
+
+---
+
+## ⚙️ Funcionalidades
+
+- [x] Visualização dos participantes do sorteio por categoria:
+  - [x] visualização do nome e do cpf dos participantes 
+  - [x] Visualização do total de participantes válidos
+- [x] Realização dos sorteios das habitações por categoria:
+  - [x] Visualização do nome e do cpf dos sorteados
+ 
+---
+
+
+## 🚀 Como executar o projeto
+
+
+1. Frontend (pasta SorteioHabFrant)
+
+
+💡O Frontend precisa que o Backend esteja em execução para funcionar.
+
+### Pré-requisitos
+
+Antes de começar, você precisa ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). 
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
+
+#### 🎲 Rodando o Backend (servidor)
 
 ```bash
-npx create-next-app --example with-styled-components with-styled-components-app
-# or
-yarn create next-app --example with-styled-components with-styled-components-app
+
+# Clone este repositório
+$ git clone git@github.com/lffernandes/Sorteio
+
+# Acesse a pasta do projeto no terminal/cmd
+$ cd SorteioHab
+
+# Vá para a pasta SorteioHabBack
+$ cd SorteioHabBack
+
+# Compile a aplicação
+$ dotnet build
+
+# Vá para a pasta SorteioHab.Domain.Tests (Opcional)
+$ cd SorteioHab.Domain.Tests
+
+# Execute os testes 
+$ dotnet test
+
+# Vá para a pasta SorteioHab.Domain.Api
+$ cd SorteioHab.Domain.Api
+
+# Execute a aplicação SorteioHab.Domain.Api
+$ dotnet watch run
+
+# O servidor inciará na porta:5001- acesse https://localhost:5001 ou na porta 5000- acesse http://localhost:5000
+
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
 
-### Try it on CodeSandbox
 
-[Open this example on CodeSandbox](https://codesandbox.io/s/github/vercel/next.js/tree/canary/examples/with-styled-components)
+#### 🧭 Rodando a aplicação web (Frontend)
 
-### Notes
+```bash
 
-When wrapping a [Link](https://nextjs.org/docs/api-reference/next/link) from `next/link` within a styled-component, the [as](https://styled-components.com/docs/api#as-polymorphic-prop) prop provided by `styled` will collide with the Link's `as` prop and cause styled-components to throw an `Invalid tag` error. To avoid this, you can either use the recommended [forwardedAs](https://styled-components.com/docs/api#forwardedas-prop) prop from styled-components or use a different named prop to pass to a `styled` Link.
+# Clone este repositório
+$ git clone git@github.com/lffernandes/Sorteio
 
-<details>
-<summary>Click to expand workaround example</summary>
-<br />
 
-**components/StyledLink.js**
+# Acesse a pasta do projeto no seu terminal/cmd
+$ cd SorteioHab
 
-```javascript
-import Link from 'next/link'
-import styled from 'styled-components'
+# Vá até a pasta "SorteioHabFront", nossa aplicação Front End
+$ cd SorteioHabFront
 
-const StyledLink = ({ as, children, className, href }) => (
-  <Link href={href} as={as} passHref>
-    <a className={className}>{children}</a>
-  </Link>
-)
+# Instale as dependências
+$ npm install
 
-export default styled(StyledLink)`
-  color: #0075e0;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
+# Execute a aplicação 
+$ ng serve
 
-  &:hover {
-    color: #40a9ff;
-  }
+# A aplicação será aberta na porta:4200- acesse https://localhost:4200
 
-  &:focus {
-    color: #40a9ff;
-    outline: none;
-    border: 0;
-  }
-`
 ```
 
-**pages/index.js**
+---
 
-```javascript
-import StyledLink from '../components/StyledLink'
+## 🛠 Tecnologias
 
-export default () => (
-  <StyledLink href="/post/[pid]" forwardedAs="/post/abc">
-    First post
-  </StyledLink>
-)
-```
+As seguintes ferramentas foram usadas na construção do projeto:
 
-</details>
+#### ** BACK END ** ([DotNet Core](https://dotnet.microsoft.com/download/))
+
+-   **(/SorteioHab.Domain)**
+    -   **[Flunt](https://github.com/andrebaltieri/flunt) "1.0.5"**
+    
+-   **(/SorteioHab.Domain.Api)**
+    -   **[EntityFrameworkCore] "3.1.0"**
+    -   **[EntityFrameworkCore.Design] "3.1.0"**
+    -   **[EntityFrameworkCore.SqlServer] "3.1.0"**
+    -   **[EntityFrameworkCore.Tools] "3.1.0" **
+    
+-   **(/SorteioHab.Domain.Infra)**
+    -   **[EntityFrameworkCore] "3.1.0"**
+    -   **[EntityFrameworkCore.Design] "3.1.0"**
+    -   **[EntityFrameworkCore.SqlServer] "3.1.0"**
+    -   **[EntityFrameworkCore.Tools] "3.1.0" **
+    -   **[EntityFrameworkCore.Relational] "3.1.0" **
+    
+-   **(/SorteioHab.Domain.Tests)**
+    -   **[Coverlet.collector] "1.2.0"**
+    -   **[Flunt](https://github.com/andrebaltieri/flunt) "1.0.5"**
+    -   **[Microsoft.NET.Test.Sdk] "16.5.0"**
+    -   **[MSTest.TestAdapter] "2.1.0"**
+    -   **[MSTest.TestFramework] "2.1.0"**    
+
+
+
+#### ** FRONT END **  [Angular](https://www.typescriptlang.org/) + [React](https://reactjs.org/) + [HTML] + [CSS] + [Typescript] + [Typescript]
+
+
+-    **[angular/animations] "~11.0.1"**
+-    **[angular/common] "~11.0.1"**
+-    **[angular/compiler] "~11.0.1"**
+-    **[angular/core"] ~11.0.1"**
+-    **[angular/forms] "~11.0.1"**
+-    **[angular/platform-browser] "~11.0.1"**
+-    **[angular/platform-browser-dynamic] "~11.0.1"**
+-    **[angular/router] "~11.0.1"**
+-    **[bower] "^1.8.8"**
+-    **[grunt-cli] "^1.3.2"**
+-    **[rxjs] "~6.6.0"**
+-    **[tslib] "^2.0.0"**
+-    **[zone.js] "~0.10.2"**
+
+
+
+---
+
+## 🦸 Autor
+
+
+ <sub><b>Luiz Felipe M. Fernandes</b></sub></a> <a href="https://www.linkedin.com/in/luizffernandes/" title="lzfrnds">🚀</a>
+ 
+[![Linkedin Badge](link=https://www.linkedin.com/in/luizffernandes/)](https://www.linkedin.com/in/luizffernandes/) 
+[![Gmail Badge](logo=Gmail&logoColor=white&link=mailto:luiz.fernandesgti@gmail.com)](mailto:luiz.fernandesgti@gmail.com)
+
+---
+
+## 📝 Licença
+
+
+Feito com ❤️ por Luiz Felipe M. Fernandes 👋🏽 [Entre em contato!](https://www.linkedin.com/in/luizffernandes/)
+
+---
+
